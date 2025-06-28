@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // CORS configuration
+// CORS configuration
 const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
@@ -30,15 +31,21 @@ const corsOptions = {
       'http://localhost:5173',
       'http://127.0.0.1:3000',
       'http://127.0.0.1:5173',
+      'https://customer-segmentation-app-frontend.vercel.app', // Add this line
+      'https://customer-segmentation-app-6kan.vercel.app', // Add this line if you have the old URL
       process.env.FRONTEND_URL
     ];
+    
+    console.log('🌐 CORS request from origin:', origin); // Debug log
     
     // Allow requests with no origin (mobile apps, etc.)
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.includes(origin)) {
+      console.log('✅ CORS allowed for:', origin);
       callback(null, true);
     } else {
+      console.log('❌ CORS blocked for:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
