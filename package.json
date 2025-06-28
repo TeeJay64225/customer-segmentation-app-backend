@@ -16,7 +16,7 @@
     "customer-segmentation",
     "ai"
   ],
-  "author": "Your Name",
+  "author": "Dev Quarm",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",
